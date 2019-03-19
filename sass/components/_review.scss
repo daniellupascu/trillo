@@ -1,0 +1,56 @@
+.review {
+  padding: 3rem;
+  background-color: #fff;
+  box-shadow: var(--box-shaddow-light);
+  font-size: 1.3rem;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: "\201C";
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    line-height: 1;
+    font-size: 20rem;
+    font-family: sans-serif;
+    color: var(--color-grey-light-2);
+    z-index: 1;
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 3rem;
+  }
+
+  &__text {
+    z-index: 2;
+    position: relative;
+  }
+
+  &__user {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+
+    &-name {
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+  }
+
+  &__photo {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+  }
+
+  &__userbox {
+    margin-left: 1.5rem;
+  }
+
+  &__rating {
+    margin-left: auto;
+    color: var(--color-primary);
+    font-size: 2.5rem;
+  }
+}
