@@ -42,6 +42,9 @@ Grey dark 3: #999
 html {
   box-sizing: border-box;
   font-size: 62.5%; }
+  @media only screen and (max-width: 68.75em) {
+    html {
+      font-size: 50%; } }
 
 body {
   font-family: "Open Sans", sans-serif;
@@ -59,6 +62,11 @@ body {
   background-color: var(--color-grey-light-2);
   box-shadow: var(--box-shaddow);
   min-height: 50rem; }
+  @media only screen and (max-width: 75em) {
+    .container {
+      margin: 0;
+      width: 100%;
+      max-width: 100%; } }
 
 .header {
   font-size: 1.4rem;
@@ -68,9 +76,17 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center; }
+  @media only screen and (max-width: 30em) {
+    .header {
+      flex-wrap: wrap;
+      padding: 1rem;
+      height: auto; } }
 
 .content {
   display: flex; }
+  @media only screen and (max-width: 56.25em) {
+    .content {
+      flex-direction: column; } }
 
 .sidebar {
   background-color: var(--color-grey-dark-1);
@@ -88,6 +104,12 @@ body {
   padding: 4.5rem;
   background-color: var(--color-grey-light-1);
   border-bottom: 1px solid var(--color-grey-light-2); }
+  @media only screen and (max-width: 56.25em) {
+    .details {
+      padding: 1.5rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .details {
+      flex-direction: column; } }
 
 .description {
   font-size: 1.4rem;
@@ -96,6 +118,14 @@ body {
   padding: 3rem;
   margin-right: 4.5rem;
   box-shadow: var(--box-shaddow-light); }
+  @media only screen and (max-width: 56.25em) {
+    .description {
+      padding: 2rem;
+      margin-right: 1.5rem; } }
+  @media only screen and (max-width: 37.5em) {
+    .description {
+      margin-right: 0;
+      margin-bottom: 3rem; } }
 
 .user-reviews {
   flex: 1; }
@@ -113,6 +143,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center; }
+  @media only screen and (max-width: 30em) {
+    .search {
+      order: 1;
+      flex: 0 0 100%;
+      margin: 2rem 0; } }
   .search__input {
     font-family: inherit;
     font-size: inherit;
@@ -177,11 +212,18 @@ body {
     height: 3.75rem;
     border-radius: 50%;
     margin-right: 1.5rem; }
+  @media only screen and (max-width: 37.5em) {
+    .user-nav__user-name {
+      display: none; } }
 
 .side-nav {
   font-size: 1.4rem;
   list-style: none;
   margin-top: 3.5rem; }
+  @media only screen and (max-width: 56.25em) {
+    .side-nav {
+      display: flex;
+      margin: 0; } }
   .side-nav__item::before {
     content: "";
     position: absolute;
@@ -194,8 +236,14 @@ body {
     transition: transform 0.25s cubic-bezier(1, 0, 0, 1), width 0.25s 0.25s, background-color 0.2s; }
   .side-nav__item {
     position: relative; }
+    @media only screen and (max-width: 56.25em) {
+      .side-nav__item {
+        flex: 1; } }
     .side-nav__item:not(:last-child) {
       margin-bottom: 0.5rem; }
+      @media only screen and (max-width: 56.25em) {
+        .side-nav__item:not(:last-child) {
+          margin: 0; } }
     .side-nav__item:hover::before, .side-nav__item--active::before {
       transform: scaleY(1);
       width: 100%; }
@@ -210,17 +258,32 @@ body {
     align-items: center;
     position: relative;
     z-index: 10; }
+    @media only screen and (max-width: 56.25em) {
+      .side-nav__link:link, .side-nav__link:visited {
+        justify-content: center; } }
+    @media only screen and (max-width: 37.5em) {
+      .side-nav__link:link, .side-nav__link:visited {
+        flex-direction: column; } }
   .side-nav__icon {
     width: 1.75rem;
     height: 1.75rem;
     fill: var(--color-grey-light-1);
     margin-right: 2rem; }
+    @media only screen and (max-width: 37.5em) {
+      .side-nav__icon {
+        margin: 0; } }
+    @media only screen and (max-width: 30em) {
+      .side-nav__icon {
+        display: none; } }
 
 .legal {
   font-size: 1.2rem;
   text-align: center;
   padding: 2.5rem;
   color: currentColor; }
+  @media only screen and (max-width: 56.25em) {
+    .legal {
+      display: none; } }
 
 .gallery {
   display: flex; }
@@ -312,9 +375,14 @@ body {
       height: 1rem;
       content: "";
       display: inline-block;
-      background-color: var(--color-primary);
-      -webkit-mask-image: url("../img/chevron-thin-right.svg");
-      -webkit-mask-size: cover; }
+      background-image: url("../img/chevron-thin-right.svg");
+      background-size: cover; }
+      @supports (-webkit-mask-image: url()) or (mask-image: url()) {
+        .list__item::before {
+          background-color: var(--color-primary);
+          -webkit-mask-image: url("../img/chevron-thin-right.svg");
+          -webkit-mask-size: cover;
+          background-image: none; } }
 
 .recommend {
   font-size: 1.3rem;
@@ -338,6 +406,9 @@ body {
   font-size: 1.3rem;
   position: relative;
   overflow: hidden; }
+  @media only screen and (max-width: 56.25em) {
+    .review {
+      padding: 1.5rem; } }
   .review::before {
     content: "\201C";
     position: absolute;
@@ -375,6 +446,9 @@ body {
   padding: 3.5rem;
   text-align: center;
   text-transform: uppercase; }
+  @media only screen and (max-width: 56.25em) {
+    .cta {
+      padding: 2.5rem; } }
   .cta__book-now {
     font-size: 2rem;
     font-weight: 300;

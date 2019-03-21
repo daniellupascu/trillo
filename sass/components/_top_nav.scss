@@ -9,6 +9,12 @@
   align-items: center;
   justify-content: center;
 
+  @media only screen and (max-width: $bp-smallest) {
+    order: 1;
+    flex: 0 0 100%;
+    margin: 2rem 0;
+  }
+
   &__input {
     font-family: inherit;
     font-size: inherit;
@@ -93,5 +99,11 @@
     height: 3.75rem;
     border-radius: 50%;
     margin-right: 1.5rem;
+  }
+
+  &__user-name {
+    @media only screen and (max-width: $bp-small) {
+      display: none;
+    }
   }
 }
